@@ -132,7 +132,7 @@ myShoeString myShoeString::operator=(const myShoeString& S)
 {
     // If address is the same, than self assignment attempted
     if (this == &S){
-        std::cout << "Self Assignment Avoided" << std::endl;
+        std::cout << "| self assign | Avoided |\n";
         return S;
     }
     else{      // otherwise create new string and copy contents over and return

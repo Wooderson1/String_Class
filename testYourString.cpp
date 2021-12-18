@@ -19,6 +19,7 @@ struct Test_string
     // Check the default contructor.
     myShoeString s;
     assert(s.empty());
+    std::cout << "| default constructor | Pass |\n";
   }
 
   void string_ctor()
@@ -27,6 +28,7 @@ struct Test_string
     myShoeString s = str;
     assert(s.data() != str);
     assert(strcmp(s.data(), str) == 0);
+    std::cout << "| string constructor | Pass |\n";
   }
 
 
@@ -35,6 +37,7 @@ struct Test_string
     myShoeString s1 = "hello";
     myShoeString s2 = s1;
     assert(strcmp(s1.data(), s2.data()) == 0);
+    std::cout << "| copy constructor | Pass |\n";
   }
 
   void copy_assign()
@@ -43,6 +46,7 @@ struct Test_string
     myShoeString s2;
     s2 = s1;
     assert(strcmp(s1.data(), s2.data()) == 0);
+    std::cout << "| copy assign | Pass |\n";
   }
 
   void string_assign()
@@ -50,6 +54,7 @@ struct Test_string
     myShoeString s;
     s = "hello";
     assert(!strcmp(s.data(), "hello"));
+    std::cout << "| string assign | Pass |\n";
   }
 
   void self_assign()
@@ -64,6 +69,7 @@ struct Test_string
     assert(s1.empty());
     myShoeString const s2 = "";
     assert(s2.empty());
+    std::cout << "| empty | Pass |\n";
   }
 
   void access()
@@ -77,6 +83,7 @@ struct Test_string
 
     assert(s1[-1]);
     assert(s2[-1]);
+    std::cout << "| access | Pass |\n";
   }
 
   void find()
@@ -84,6 +91,7 @@ struct Test_string
     myShoeString const s1 = "abcdef";
     assert(s1.find('c') == 2);
     assert(s1.find('z') == s1.npos);
+    std::cout << "| find | Pass |\n";
   }
 
   void substr()
@@ -93,6 +101,7 @@ struct Test_string
     myShoeString s3 = s1.substr(3, 3);
     assert (s2 == "abc");
     assert (s3 == "def");
+    std::cout << "| substring assign | Pass |\n";
   }
 
   void equality()
@@ -101,6 +110,7 @@ struct Test_string
     myShoeString const s2 = "goodbye";
     assert(s1 == s1);
     assert(s1 != s2);
+    std::cout << "| equality operators | Pass |\n";
   }
 
   void ordering()
@@ -108,9 +118,13 @@ struct Test_string
     myShoeString s1 = "abc";
     myShoeString s2 = "def";
     assert(s1 < s2);
+    std::cout << "| < operator | Pass |\n";
     assert(s2 > s1);
+    std::cout << "| > operator | Pass |\n";
     assert(s1 <= s1);
+    std::cout << "| <= operator | Pass |\n";
     assert(s1 >= s1);
+    std::cout << "| >= operator | Pass |\n";
   }
 
   void concatenation()
@@ -120,6 +134,7 @@ struct Test_string
     myShoeString s3 = s1 + s2;
     myShoeString s4 = "abcdef";
     assert(s3 == s4);
+    std::cout << "| concatenation | Pass |\n";
   }
 
   void self_concatenation()
@@ -128,6 +143,7 @@ struct Test_string
     s1 += s1;
     myShoeString s2 = "abcabc";
     assert(s1 == s2);
+    std::cout << "| self concatination | Pass |\n";
   }
 
   // The assert test runner for this test class.
@@ -152,8 +168,13 @@ struct Test_string
 
 int main()
 {
+  // asserts status report
+  std::cout << "# myStringClass\n";
+  std::cout << "| Assert | Status |\n";
+  std::cout << "|:-----|-----:|\n";
+
   Test_string test;
   test.run();
-  std::cout << "\nTest run passed! All asserts passed.\n\n";
+
   return 0;
 }
