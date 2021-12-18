@@ -1,7 +1,7 @@
 # My String Class
 * This class dynamically allocates a character string 
 * Designed to be used exactly like a regular C++ string
-* No real output is produced, asserts are used to guarantee correct functionaility 
+* Outputs markdown report to the console of the status of asserts
 
 ## How to run
 ```console
